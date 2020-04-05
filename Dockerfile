@@ -41,7 +41,7 @@ RUN echo @edge http://nl.alpinelinux.org/alpine/edge/community > /etc/apk/reposi
 
 COPY --from=build /go/bin/gphotos-cdp /usr/bin/jhead /usr/bin/
 COPY root/ /
-RUN ["chmod", "+x", "/entrypoint.sh"]
+RUN ["chmod", "777", "/entrypoint.sh"]
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
 CMD [""]
