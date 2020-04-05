@@ -39,10 +39,9 @@ RUN echo @edge http://nl.alpinelinux.org/alpine/edge/community > /etc/apk/reposi
     && rm -rf /var/cache/* \
     && mkdir /var/cache/apk
 
-RUN ["chmod", "+x", "/entrypoint.sh"]
-
 COPY --from=build /go/bin/gphotos-cdp /usr/bin/jhead /usr/bin/
 COPY root/ /
+RUN ["chmod", "+x", "/entrypoint.sh"]
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
 CMD [""]
